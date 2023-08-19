@@ -1,0 +1,42 @@
+[
+    {
+        "image": "https://gogocdn.net/cover/my-home-hero-1680202427.png",
+        "title": "My Home Hero",
+        "card_link": "my-home-hero"
+    },
+    {
+        "image": "https://gogocdn.net/cover/buddy-daddies-1672328768.png",
+        "title": "Buddy Daddies",
+        "card_link": "buddy-daddies"
+    },
+    {
+        "image": "https://gogocdn.net/cover/bungou-stray-dogs-4th-season.png",
+        "title": "Bungou Stray Dogs 4th Season",
+        "card_link": "bungou-stray-dogs-4th-season"
+    },
+    {
+        "image": "https://gogocdn.net/cover/bungou-stray-dogs-5th-season-dub.png",
+        "title": "Bungou Stray Dogs 5th Season (Dub)",
+        "card_link": "bungou-stray-dogs-5th-season-dub"
+    },
+    {
+        "image": "https://gogocdn.net/cover/gokushufudou-season-2.png",
+        "title": "Gokushufudou Season 2",
+        "card_link": "gokushufudou-season-2"
+    },
+    {
+        "image": "https://gogocdn.net/cover/gokushufudou-season-2-dub.png",
+        "title": "Gokushufudou Season 2 (Dub)",
+        "card_link": "gokushufudou-season-2-dub"
+    },
+    {
+        "image": "https://gogocdn.net/cover/buddy-daddies-dub.png",
+        "title": "Buddy Daddies (Dub)",
+        "card_link": "buddy-daddies-dub"
+    },
+    {
+        "image": "https://gogocdn.net/cover/bungou-stray-dogs-5th-season.png",
+        "title": "Bungou Stray Dogs 5th Season",
+        "card_link": "bungou-stray-dogs-5th-season"
+    }
+]

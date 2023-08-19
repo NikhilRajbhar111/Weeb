@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Detail{% endblock %}
+
+{% block content %}
+<div class="container" style="background-image: url('{{ data[0].img }}');">
+  <div class="row detail_container">
+    <div class="col-md-4 card_row">
+      <img src="{{ data[0].img }}" alt="{{ data[0].anime_name }}" class="img-thumbnail myImg">
+      <div class="buy d-flex justify-content-between align-items-center">
+        <a href="{{ url_for('routes.stream', title=data[0].ep_url) }}" class="btn btn-danger mt-3"><i class="bi bi-play"></i> Watch Now</a>
+      </div>
+    </div>
+    <div class="col-md-8 text-white">
+      <h1>{{ data[0].anime_name }}</h1>
+      <p><strong>Name:</strong> {{ data[0].Name }}</p>
+      <p><strong>Plot:</strong> 
+      <div class="plot-scrollable">
+       {{ data[0].Plot }}</p>
+      </div>
+      <p><strong>Genre:</strong>
+        {% for genre in data[0].Genre %}
+          <a href="#" class="badge badge-pill text-dark">{{genre}}</a>
+          {% if not loop.last %}| {% endif %}
+        {% endfor %}
+      </p>
+      <p><strong>Released:</strong> {{ data[0].Released }}</p>
+      <p><strong>Status:</strong> {{ data[0].Status }}</p>
+      <p><strong>Other Name:</strong> {{ data[0].Other_Name }}</p>
+      <p><strong>Total episodes:</strong> {{ data[0].Last_Episode_Number }}</p>
+      <p><strong>Episode URL:</strong> {{ data[0].ep_url }}</p>
+    </div>
+    
+  </div>
+</div>
+
+<div class="container mt-5 text-white">
+  <h2>Recommendations</h2>
+  <div class="row recommendation-row">
+    {% for item in genre %}
+    <div class="col-3 col-md-2">
+      <div class="card myCard">
+        <a href="{{ url_for('routes.category', card_link=item.card_link, title=item.title) }}" title="{{ item.title }}">
+          <img class="card-img" src="{{ item.image }}" alt="{{ item.title }}">
+        </a>    
+        <div class="card-body">
+          <p class="card-title font-weight-light multi-line-title">{{ item.title }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

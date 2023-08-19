@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-white">
+  <h2>Popular</h2>
+  <div class="scrolling-wrapper">
+    {% for item in carousel_data %}
+    <div class="scrolling-card col-3 col-md-2">
+      <div class="card myCard">
+        <a href="{{ url_for('routes.category', card_link=item.card_link, title=item.title) }}" title="{{ item.title }}">
+          <img class="card-img" src="{{ item.image }}" alt="{{ item.title }}">
+        </a>        
+        <div class="card-body">
+          <p class="card-title font-weight-light multi-line-title">{{ item.title }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="container mt-5 text-white">
+  <h2>Recommendations</h2>
+  <div class="row recommendation-row">
+    {% for item in data %}
+    <div class="col-3 col-md-2">
+      <div class="card myCard">
+        <a href="{{ url_for('routes.category', card_link=item.card_link, title=item.title) }}" title="{{ item.title }}">
+          <img class="card-img" src="{{ item.image }}" alt="{{ item.title }}">
+        </a>    
+        <div class="card-body">
+          <p class="card-title font-weight-light multi-line-title">{{ item.title }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
