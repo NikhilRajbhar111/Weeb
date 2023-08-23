@@ -11,7 +11,7 @@ Weeb is a lightweight web application built using Flask, designed to bring your 
 - **Episode Scraping:** By scraping episode data from Gogoanime, Weeb ensures that you have access to a comprehensive list of episodes for each anime series. This allows you to conveniently select and view specific episodes without any hassle.
 
 ## Installation
-(Note i wll update the instruction later on)
+(Note i wll update the instructions later on)
 1. Clone the repository: `git clone https://github.com/yourusername/weeb.git`
 2. Navigate to the project directory: `cd weeb`
 3. Create a virtual environment (recommended): `python3 -m venv venv`
