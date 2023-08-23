@@ -1,8 +1,6 @@
-# from flask import flash
+
 import json
 from my_site.json_validator import remove_duplicates_and_update
-# from scraper.detail import scrape
-# Load home.json
 def load_home_data(limit=20):
     try:
         with open("cached_data/home.json", "r") as file:
@@ -38,8 +36,6 @@ def load_detail_data(title):
         with open("cached_data/detail.json", "r") as file:
             data = json.load(file)
             
-            # print(title)
-            
             matching_data = [item for item in data if item.get("anime_name", "").strip() == title]
             print("Matching data:", matching_data)
             print("serving data from file")
@@ -66,14 +62,12 @@ def save_detail_data(new_data, title):
     except FileNotFoundError:
         data = []
 
-    # Check if any data's "anime_name" is equal to "title"
     found = False
     for item in data:
         if item.get("anime_name", "").strip() == title.strip():
             found = True
             break
-    
-    # If not found, append the new data
+
     if not found:
         data.append(new_data)
         json_file_path = "cached_data/detail.json"

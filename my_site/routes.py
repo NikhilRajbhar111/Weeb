@@ -1,9 +1,7 @@
 from flask import Blueprint, render_template, flash, redirect, url_for, request
 from my_site.access import load_home_data, load_trending_data
 from scraper.detail import get_detail_data
-# from scraper.detail import get_detail_data
 from scraper.stream import get_stream_url
-# from scraper.detail import get_detail_data
 from scraper.search import get_search_data
 from scraper.genre import get_genre_data
 
@@ -23,8 +21,7 @@ def category(card_link):
     
     if anime_data:
         genre = anime_data[0]["Genre"]
-        genre_data = get_genre_data(genre)  # Fetch genre-specific recommendations
-        # print(genre_data)
+        genre_data = get_genre_data(genre)
         return render_template('detail.html', data=anime_data, genre=genre_data)
     else:
         flash("An error occurred while fetching data from the category page.")
@@ -34,9 +31,10 @@ def category(card_link):
 @routes.route('/stream/<title>')
 def stream(title):
     stream_url = get_stream_url(title)
+    total_ep = request.args.get('total_ep')
     
     if stream_url:
-        return render_template('stream.html', stream_url=stream_url, title=title)
+        return render_template('stream.html', stream_url=stream_url, total_ep=total_ep, title=title)
     else:
         flash("An error occurred while fetching the stream URL.")
         return redirect(url_for('routes.home'))
@@ -52,5 +50,5 @@ def search():
 
 @routes.route("/trending")
 def trending():
-    data=load_trending_data(200)
+    data=load_trending_data(20)
     return render_template("trending.html",data=data)

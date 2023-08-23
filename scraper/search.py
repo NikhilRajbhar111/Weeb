@@ -4,7 +4,7 @@ import json
 
 def get_soup(url):
     response = requests.get(url)
-    response.raise_for_status()  # Raise an exception for HTTP errors
+    response.raise_for_status()
     soup = BeautifulSoup(response.content, "html.parser")
     return soup
 
@@ -44,13 +44,3 @@ def get_search_data(anime_name):
             anime_data.append({"name": name, "image": image_src, "link": card_link})
 
     return anime_data
-
-# try:
-#     anime_name = "your_anime_name_here"
-#     anime_data = get_search_data(anime_name)
-#     json_data = json.dumps(anime_data, indent=2)
-#     print(json_data)
-# except requests.exceptions.RequestException as e:
-#     print("An error occurred during the request:", e)
-# except Exception as e:
-#     print("An unexpected error occurred:", e)

@@ -1,3 +1,0 @@
-[build]
-command = "python app.py build" 
-publish = "D:\\project\\Weeb"  

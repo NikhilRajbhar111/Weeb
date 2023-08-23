@@ -23,7 +23,3 @@ def remove_duplicates_and_update(file_path):
     with open(file_path, "w") as file:
         json.dump(unique_data, file, indent=4)
 
-# Specify the path to your JSON file
-json_file_path = "cached_data/detail.json"
-remove_duplicates_and_update(json_file_path)
-print("Duplicates removed and file updated.")

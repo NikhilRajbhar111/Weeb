@@ -13,23 +13,20 @@ body {
 
 .navbar-dark .navbar-nav .nav-link {
   color: #ffffff;
-  /* background-color: red; */
+  border-radius: 20px;
   font-weight: bold;
   max-width: 6rem;
   margin-bottom: 4px;
-  /* text-align: center; */
-  
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-  color: #000000;
   font-weight: bold;
   background-color: rgb(40,254,175);
+  box-shadow:0px 0px 9px 2px #25ff00;
   max-width: 6rem;
-  /* border: rgb(255, 255, 255) 10px; */
-  border-radius: 20px;
-  transition-property: background-color, border-radius;
-  transition-duration: 0.8s;
+  color: #000000;
+  transition-property: background-color, box-shadow;
+  transition-duration: 0.5s;
 }
 
 .myform {
@@ -51,6 +48,7 @@ body {
   border: solid 2px;
   border-radius: 30px;
   border-color: rgb(8, 107, 172);
+  box-shadow: 0px 0px 9px 2px #25ff00;
   transition-property: border-radius;
   transition-duration: 0.5s;
   text-decoration: none;
@@ -63,10 +61,13 @@ body {
   margin-left: 7px;
 }
 
+.btn-outline-light:hover{
+  box-shadow: 0px 0px 9px 2px #25ff00;
+}
+
 .container {
   max-width: 100vw;
   border-radius: 1rem;
-  /* margin-top: 2rem; */
 }
 
 .card,
@@ -106,24 +107,16 @@ body {
   margin-bottom: 5px;
 }
 
-.episode-button {
-  width: 50px;
-  height: 50px;
-  text-decoration: none;
-  border: 1px solid black;
-  border-radius: 5px;
-  background-color: #FF0000;
-  color: #FFFFFF;
-  text-decoration: none;
+.episode-button:hover {
+  background-color: rgba(40, 254, 175, 0.8);
 }
 
-/* Customizing the scrollbar for scrolling-wrapper */
 .scrolling-wrapper {
   display: flex;
   overflow-x: scroll;
   gap: 20px;
   padding-bottom: 20px;
-  scrollbar-width: thin; /* For Firefox */
+  scrollbar-width: thin;
   scrollbar-color: rgba(2, 255, 230) transparent; 
 }
 
@@ -133,7 +126,7 @@ body {
  
 .scrolling-wrapper::-webkit-scrollbar-thumb {
   background: rgb(255, 255, 255);
-  border-radius: 8px; /* Added border-radius */
+  border-radius: 8px;
 }
 
 .scrolling-wrapper::-webkit-scrollbar-thumb:hover{
@@ -141,9 +134,8 @@ body {
 }
 
 .scrolling-wrapper::-webkit-scrollbar-track {
-  /* background: #fb2c2c; */
   background: transparent;
-  border-radius: 8px; /* Added border-radius */
+  border-radius: 8px;
 }
 
 .scrolling-wrapper::-webkit-scrollbar-button {
@@ -152,8 +144,6 @@ body {
   border-radius: 50%;
 }
 
-
-/* Recommendation section */
 .recommendation-wrapper {
   overflow-x: auto;
   white-space: nowrap;
@@ -174,7 +164,7 @@ body {
   border-radius: 2rem;
   max-width: 18rem;
   height: auto;
-  animation: backgroundTransition 50s infinite alternate; /* Adjust the duration and animation details as needed */
+  animation: backgroundTransition 50s infinite alternate;
   backdrop-filter: blur(1rem);
 }
 
@@ -197,14 +187,12 @@ body {
 }
 
 .detail_container{
-  /* position: relative; */
-  /* z-index: 10; */
   margin-top: 0rem;
   padding-top: 2rem;
   background: rgba(0, 0, 0, 0.32);
   border-radius: 1rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(1rem);
+  backdrop-filter: blur(2rem);
   -webkit-backdrop-filter: blur(1rem);
   height: 100%;
   background-repeat: no-repeat;
@@ -216,13 +204,60 @@ body {
 }
 
 .plot-scrollable {
-  max-height: 200px; /* Adjust the height as needed */
+  max-height: 200px;
   overflow-y: auto;
-  /* border: 1px solid #ccc; */
   padding: 10px;
   margin-bottom: 10px;
 }
 
+.content-container{
+  margin-top: 4rem;
+}
+
+.frame-container{
+  margin-top: 5rem;
+}
+
+.myframe{
+  border-radius: 10px;
+  width: 62rem;
+  height: 35rem;
+}
+
+.episode-frame {  
+  height: 35rem;
+  overflow: scroll; 
+  padding-right: 1rem;
+}
+
+.episode-button {
+  background-color: rgb(6,50,77);
+  color: white;
+  width: 3rem;
+  padding: 8px 12px; 
+  font-size: 14px; 
+  border: solid black;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.episode-button:hover{
+  color: black;
+  background-color: rgb(40,254,175);
+  transition: background-color;
+  transition-duration: 500ms;
+  border: white;
+  box-shadow: 0px 0px 9px 2px #25ff00;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
 
 /* Media queries */
 @media (max-width: 768px) {
@@ -234,5 +269,22 @@ body {
   .scrolling-card,
   .card {
     flex: 0 0 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .frame-container {
+    flex-direction: column-reverse;
+  }
+
+  .myframe {
+    max-width: 100%; 
+    height: auto; 
+    margin-bottom: 1rem; 
+  }
+
+  .episode-frame {
+    height: auto;
+    overflow: visible; 
   }
 }

@@ -7,7 +7,7 @@
     <div class="col-md-4 card_row">
       <img src="{{ data[0].img }}" alt="{{ data[0].anime_name }}" class="img-thumbnail myImg">
       <div class="buy d-flex justify-content-between align-items-center">
-        <a href="{{ url_for('routes.stream', title=data[0].ep_url) }}" class="btn btn-danger mt-3"><i class="bi bi-play"></i> Watch Now</a>
+        <a href="{{ url_for('routes.stream', title=data[0].ep_url, total_ep=data[0].Last_Episode_Number) }}" class="btn btn-danger mt-3"><i class="bi bi-play"></i> Watch Now</a>
       </div>
     </div>
     <div class="col-md-8 text-white">

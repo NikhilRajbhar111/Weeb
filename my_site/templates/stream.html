@@ -2,12 +2,56 @@
 {% block title %}Stream{% endblock %}
 
 {% block content %}
-<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+
+<div class="container d-flex flex-column-reverse flex-md-row justify-content-center align-items-center frame-container" style="max-height: 100vh;">
   <div class="col-md-8">
-    <div class="embed-responsive embed-responsive-16by9">
-      Debug: <p>{{ stream_url }}</p>
-      <iframe class="custom-iframe embed-responsive-item" src="{{ stream_url }}" allowfullscreen></iframe>
+    <div class="embed-responsive embed-responsive-16by9 myframe">
+      <iframe id="streamIframe" class="custom-iframe embed-responsive-item" src="{{ stream_url }}" allowfullscreen></iframe>
+      <p>Episode: {{ total_ep }}</p>
+      <p>Link: {{ stream_url }}</p>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="embed-responsive embed-responsive-16by9 episode-frame hide-scrollbar" id="episodeFrame">
+      
     </div>
   </div>
 </div>
+
+<script>
+  const episodeFrame = document.getElementById('episodeFrame');
+  const totalButtons = {{ total_ep }};
+  const streamUrl = '{{ stream_url }}';
+  
+  const generateButton = (episodeNumber) => {
+    const baseTitle = '{{ title }}';
+    const modifiedTitle = baseTitle.replace(/-\d+$/, `-${episodeNumber}`);
+    const button = document.createElement('button');
+    button.className = 'episode-button m-1';
+    button.textContent = `${episodeNumber}`;
+    button.addEventListener('click', () => {
+      sendEpisodeRequest(modifiedTitle);
+    });
+    return button;
+  };
+  
+  const sendEpisodeRequest = (modifiedTitle) => {
+    const modifiedStreamUrl = `/stream/${modifiedTitle}?total_ep={{ total_ep }}`;
+    window.location.href = modifiedStreamUrl;
+  };
+  
+  const episodeButtonContainer = document.createElement('div');
+  episodeButtonContainer.className = 'd-flex flex-wrap p-3 episode';
+  episodeButtonContainer.style.overflowY = 'auto';
+  episodeButtonContainer.style.marginTop = '-17rem';
+  
+  for (let episodeNumber = 1; episodeNumber <= totalButtons; episodeNumber++) {
+    const button = generateButton(episodeNumber);
+    episodeButtonContainer.appendChild(button);
+  }
+  
+  episodeFrame.appendChild(episodeButtonContainer);
+</script>
+
 {% endblock %}

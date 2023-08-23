@@ -10,11 +10,6 @@
         <a href="{{ url_for('routes.category', card_link=item['link'],title=item['name']) }}">
           <img src="{{ item['image'] }}" class="card-img" alt="{{ item['name'] }}">
         </a>
-        <!--
-          <a href="{{ url_for('routes.category', card_link=item.card_link, title=item.title) }}" title="{{ item.title }}">
-          <img class="card-img" src="{{ item.image }}" alt="{{ item.title }}">
-        </a>
-        -->
         <div class="card-body">
           <p class="card-title font-weight-light multi-line-title">{{ item['name'] }}</p>
         </div>

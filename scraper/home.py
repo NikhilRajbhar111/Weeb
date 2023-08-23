@@ -39,7 +39,6 @@ def get_home_data(pages=2):
         data = scrape(page_url)
         all_data.extend(data)
 
-    # Write data to JSON file
     data_file_path = os.path.join(os.path.dirname(__file__), '..', 'cached_data', 'home.json')
     with open(data_file_path, 'w') as f:
         json.dump(all_data, f, indent=4)
